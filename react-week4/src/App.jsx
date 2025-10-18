@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
 
 export default function WeatherSearch() {
@@ -39,17 +41,21 @@ export default function WeatherSearch() {
 
   if (loaded) {
     return (
-      <div>
-        {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          <li>
-            <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
+      <div className="App">
+        <div className="container">
+          <div>
+            {form}
+            <ul>
+              <li>Temperature: {Math.round(weather.temperature)}°C</li>
+              <li>Description: {weather.description}</li>
+              <li>Humidity: {weather.humidity}%</li>
+              <li>Wind: {weather.wind}km/h</li>
+              <li>
+                <img src={weather.icon} alt={weather.description} />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     );
   } else {
