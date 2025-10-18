@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./App.css";
 
 export default function WeatherSearch() {
