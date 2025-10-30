@@ -10,28 +10,45 @@ export default function Weather() {
     <div className="Weather">
       <div className="container">
         <form>
-          <input
-            type="search"
-            placeholder="Enter a city.."
-            className="form-control"
-          />
-          <button type="Submit" value="search" className="btn btn-primary">
-            Search
-          </button>
+          <div className="row">
+            <div className="col-6">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                className="form-control"
+                autoFocus="on"
+              />
+            </div>
+            <div className="col-3">
+              <button
+                type="Submit"
+                value="search"
+                className="btn btn-primary w-100"
+              >
+                Search
+              </button>
+            </div>
+          </div>
         </form>
-        <p>Hello from Weather</p>
+
         <h1>Berlin</h1>
         <ul>
           <li>Saturday, 07:00</li>
           <li>Sunny</li>
         </ul>
-        <div className="row">
+        <div className="row mt-3">
           <div className="col-6">
-            <img
-              src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg "
-              alt="weather icon"
-            />
-            6°C
+            <div className="clearfix">
+              <img
+                src="https://www.gstatic.com/weather/conditions/v1/svg/partly_cloudy_light.svg "
+                alt="weather icon"
+                className="float-left"
+              />
+              <div className="float-left">
+                <span className="temperature">6</span>
+                <span className="unit">°C</span>
+              </div>
+            </div>
           </div>
           <div className="col-6">
             <ul>
