@@ -9,6 +9,16 @@ export default function Weather() {
   return (
     <div className="Weather">
       <div className="container">
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city.."
+            className="form-control"
+          />
+          <button type="Submit" value="search" className="btn btn-primary">
+            Search
+          </button>
+        </form>
         <p>Hello from Weather</p>
         <h1>Berlin</h1>
         <ul>
