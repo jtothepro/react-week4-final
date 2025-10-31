@@ -8,7 +8,7 @@ import "./Root.css";
 export default function Root() {
   return (
     <div className="Root">
-      <Weather />
+      <Weather defaultCity="Berlin" />
       <Footer />
     </div>
   );
