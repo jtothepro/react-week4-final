@@ -3,6 +3,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import axios from "axios";
 import { useState } from "react";
+import FormattedDate from "./FormattedDate.jsx";
 
 import "./Weather.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -19,7 +20,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       name: response.data.city,
       humidity: response.data.temperature.humidity,
-      date: "Friday, 11:00",
+      date: new Date(response.data.time * 1000),
       description: response.data.condition.description,
       iconUrl: response.data.condition.icon_url,
     });
@@ -54,7 +55,9 @@ export default function Weather(props) {
 
           <h1>{weatherData.name}</h1>
           <ul>
-            <li>{weatherData.date}</li>
+            <li>
+              <FormattedDate date={weatherData.date} />
+            </li>
             <li>{weatherData.description}</li>
           </ul>
           <div className="row mt-3">
