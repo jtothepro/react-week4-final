@@ -1,4 +1,5 @@
 import FormattedDate from "./FormattedDate";
+import WeatherUnit from "./WeatherUnit.jsx";
 
 export default function WeatherInfo(props) {
   return (
@@ -19,10 +20,7 @@ export default function WeatherInfo(props) {
               className="float-left"
             />
             <div className="float-left">
-              <span className="temperature">
-                {Math.round(props.data.temperature)}
-              </span>
-              <span className="unit">°C</span>
+              <WeatherUnit celcius={props.data.temperature} />
             </div>
           </div>
         </div>
