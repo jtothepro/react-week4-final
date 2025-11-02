@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import FormattedDate from "./FormattedDate.jsx";
 import WeatherInfo from "./WeatherInfo.jsx";
+import WeatherForecast from "./WeatherForecast.jsx";
 
 import "./Weather.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -73,6 +74,7 @@ export default function Weather(props) {
             </div>
           </form>
           <WeatherInfo data={weatherData} />
+          <WeatherForecast />
         </div>
       </div>
     );
