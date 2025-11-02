@@ -16,7 +16,6 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
   const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
-    console.log(response.data);
     //setTemperature(response.data.temperature.current);
     setWeatherData({
       temperature: response.data.temperature.current,
@@ -74,7 +73,7 @@ export default function Weather(props) {
             </div>
           </form>
           <WeatherInfo data={weatherData} />
-          <WeatherForecast />
+          <WeatherForecast city={city} />
         </div>
       </div>
     );
