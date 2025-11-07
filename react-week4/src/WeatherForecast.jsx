@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, use } from "react";
 import "./WeatherForecast.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,6 +8,11 @@ import WeatherForecastDay from "./WeatherForecastDay.jsx";
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecastData, setForecastData] = useState(null);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.city]);
+
   function handleResponse(response) {
     setForecastData(response.data.daily);
     setLoaded(true);
@@ -15,7 +20,6 @@ export default function WeatherForecast(props) {
   }
 
   if (loaded) {
-    console.log(forecastData);
     return (
       <div className="WeatherForecast">
         <div className="row">5-day Weather Forecast</div>
