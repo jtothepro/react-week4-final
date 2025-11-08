@@ -1,9 +1,6 @@
-import React from "react";
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
 import axios from "axios";
 import { useState } from "react";
-import FormattedDate from "./FormattedDate.jsx";
+
 import WeatherInfo from "./WeatherInfo.jsx";
 import WeatherForecast from "./WeatherForecast.jsx";
 
@@ -73,7 +70,7 @@ export default function Weather(props) {
             </div>
           </form>
           <WeatherInfo data={weatherData} />
-          <WeatherForecast city={city} />
+          <WeatherForecast city={weatherData.city} />
         </div>
       </div>
     );

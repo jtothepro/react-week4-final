@@ -1,4 +1,4 @@
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,6 +11,11 @@ export default function WeatherForecast(props) {
 
   useEffect(() => {
     setLoaded(false);
+    const apiKey = "85be9c7bad2eb4fafc3fe0e35t2o0c3e";
+    let city = props.city;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
   }, [props.city]);
 
   function handleResponse(response) {
@@ -21,25 +26,29 @@ export default function WeatherForecast(props) {
 
   if (loaded) {
     return (
-      <div className="WeatherForecast">
-        <div className="row">5-day Weather Forecast</div>
-        {forecastData.map(function (dailyForecast, index) {
-          if (index < 5) {
-            return (
-              <div className="col" key={index}>
-                <WeatherForecastDay data={dailyForecast} />
-              </div>
-            );
-          }
-        })}
+      <div className="WeatherForecast-container">
+        <div className="row mb-2">
+          <div className="col">
+            <strong>5-day Weather Forecast</strong>
+          </div>
+        </div>
+
+        <div className="row text-center">
+          {forecastData.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
       </div>
     );
   } else {
-    const apiKey = "85be9c7bad2eb4fafc3fe0e35t2o0c3e";
-    let city = props.city;
-    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-
-    axios.get(apiUrl).then(handleResponse);
     return "Loading...";
   }
 }
